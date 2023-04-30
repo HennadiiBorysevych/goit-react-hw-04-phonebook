@@ -9,28 +9,26 @@ import {
   Button,
 } from './Contacts.styled';
 
-class Contacts extends React.Component {
-  render() {
-    const { contacts, filterContacts, onDeleteContact } = this.props;
-    return (
-      <ContactsContainer>
-        <ContactsList>
-          {filterContacts().map(({ id, name, number }) => (
-            <ContactsItem key={id}>
-              <p>
-                {name}: {number}
-              </p>
-              <Button type="button" onClick={() => onDeleteContact(id)}>
-                Delete
-              </Button>
-            </ContactsItem>
-          ))}
-        </ContactsList>
-        {contacts.length === 0 && <Notification message="No Contacts" />}
-      </ContactsContainer>
-    );
-  }
-}
+const Contacts = ({ contacts, filterContacts, onDeleteContact }) => {
+  return (
+    <ContactsContainer>
+      <ContactsList>
+        {filterContacts().map(({ id, name, number }) => (
+          <ContactsItem key={id}>
+            <p>
+              {name}: {number}
+            </p>
+            <Button type="button" onClick={() => onDeleteContact(id)}>
+              Delete
+            </Button>
+          </ContactsItem>
+        ))}
+      </ContactsList>
+      {contacts.length === 0 && <Notification message="No Contacts" />}
+    </ContactsContainer>
+  );
+};
+
 export default Contacts;
 
 Contacts.propTypes = {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 import {
@@ -70,3 +70,7 @@ const Form = ({onSubmit}) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
